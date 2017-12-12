@@ -1,6 +1,6 @@
 {
   "name": "brain_games_by_leonid_kuzmin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
@@ -9,7 +9,8 @@
     "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
-    "babel-preset-stage-0": "*"
+    "babel-preset-stage-0": "*",
+    "readline-sync": "*"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

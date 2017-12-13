@@ -1,6 +1,6 @@
 {
   "name": "brain_games_by_leonid_kuzmin",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"

@@ -1,9 +1,10 @@
 {
   "name": "brain_games_by_leonid_kuzmin",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "dependencies": {
     "readline-sync": "*"

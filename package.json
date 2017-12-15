@@ -1,6 +1,6 @@
 {
   "name": "brain_games_by_leonid_kuzmin",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
@@ -16,7 +16,7 @@
     "babel-core": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*",
-    "eslint": "*",
+    "eslint": "^4.10.0",
     "eslint-config-airbnb-base": "*",
     "eslint-plugin-import": "*",
     "babel-eslint": "*"

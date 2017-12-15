@@ -14,6 +14,13 @@ export const randomInt = (min, max) => Math.floor(Math.random() * (max - min)) +
 
 export const isEven = x => x % 2 === 0;
 
+export const greatestCommonDivisor = (a, b) => {
+  if (b === 0) {
+    return Math.abs(a);
+  }
+  return greatestCommonDivisor(b, a % b);
+};
+
 export const game = (questionGenerator, answerChecker, repeats, name) => {
   for (let i = 0; i < repeats; i += 1) {
     const question = questionGenerator();

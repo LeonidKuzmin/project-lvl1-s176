@@ -2,12 +2,13 @@ import readlineSync from 'readline-sync';
 
 const writeAndReadline = prompt => readlineSync.question(prompt);
 
-export default (instruction) => {
+const greeting = (instruction) => {
   console.log(`Welcome to the Brain Games!${instruction}`);
   const username = writeAndReadline('\nMay I have your name? ');
   console.log(`Hello, ${username}!\n`);
   return username;
 };
+export default greeting;
 
 export const randomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 

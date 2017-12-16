@@ -1,4 +1,4 @@
 #!/usr/local/bin/node
-import greeting from '..';
+import gameEngine from '..';
 
-greeting('');
+gameEngine();

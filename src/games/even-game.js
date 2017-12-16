@@ -1,28 +1,14 @@
-import greeting, { randomInt, isEven, game } from '..';
+import gameEngine, { randomInt } from '..';
 
 export default () => {
-  const questionGenerator = () => randomInt(0, 100);
+  const questionAndAnswerGenerator = () => {
+    const question = randomInt(0, 100);
 
-  const isCorrectAnswer = (question, answer, answerWhenEven = 'yes', answerWhenOdd = 'no') => {
-    if (isEven(question)) {
-      if (answer === answerWhenEven) {
-        console.log('Correct!');
-        return true;
-      }
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answerWhenEven}'.`);
-      return false;
-    }
+    const isEven = x => x % 2 === 0;
+    const answer = isEven(question) ? 'yes' : 'no';
 
-    if (answer === answerWhenOdd) {
-      console.log('Correct!');
-      return true;
-    }
-
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answerWhenOdd}'.`);
-    return false;
+    return [question, answer];
   };
 
-  const username = greeting('\nAnswer "yes" if number even otherwise answer "no".');
-  const maxAttempts = 3;
-  game(questionGenerator, isCorrectAnswer, maxAttempts, username);
+  gameEngine('\nAnswer "yes" if number even otherwise answer "no".', questionAndAnswerGenerator);
 };

@@ -1,4 +1,4 @@
 #!/usr/local/bin/node
-import gcdGame from '../games/gcd-game';
+import game from '../games/gcd-game';
 
-gcdGame();
+game();

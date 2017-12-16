@@ -1,20 +1,26 @@
-import greeting, { randomInt, balanceNumber, game } from '..';
+import gameEngine, { randomInt } from '..';
 
 export default () => {
-  const questionGenerator = () => randomInt(10, 10000).toString();
+  const questionAndAnswerGenerator = () => {
+    const balanceNumber = (sNumber) => {
+      const sumOfDigits = s => s.split('').reduce((a, b) => +a + +b);
 
-  const isCorrectAnswer = (question, answer) => {
-    const correctAnswer = balanceNumber(question);
+      const sum = sumOfDigits(sNumber);
+      const baseDigit = Math.floor(sum / sNumber.length);
+      const edge = sNumber.length - (sum % sNumber.length);
 
-    if (answer === correctAnswer) {
-      console.log('Correct!');
-      return true;
-    }
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-    return false;
+      let result = '';
+      for (let i = 0; i < sNumber.length; i += 1) {
+        const nextDigit = i < edge ? baseDigit : baseDigit + 1;
+        result = `${result}${nextDigit}`;
+      }
+      return result;
+    };
+
+    const question = randomInt(0, 10000).toString();
+    const answer = balanceNumber(question);
+    return [question, answer];
   };
 
-  const username = greeting('\nBalance the given number.');
-  const maxAttempts = 3;
-  game(questionGenerator, isCorrectAnswer, maxAttempts, username);
+  gameEngine('\nBalance the given number.', questionAndAnswerGenerator);
 };

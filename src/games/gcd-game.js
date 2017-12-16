@@ -14,7 +14,7 @@ export default () => {
   const isCorrectAnswer = (question, answer) => {
     const correctAnswer = greatestCommonDivisor(firstArg, secondArg).toString();
 
-    if (answer.trim() === correctAnswer) {
+    if (answer === correctAnswer) {
       console.log('Correct!');
       return true;
     }

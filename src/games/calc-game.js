@@ -30,7 +30,7 @@ export default () => {
   };
 
   const isCorrectAnswer = (question, answer) => {
-    if (answer.trim() === correctAnswer.toString()) {
+    if (answer === correctAnswer.toString()) {
       console.log('Correct!');
       return true;
     }

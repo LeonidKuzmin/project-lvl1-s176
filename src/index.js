@@ -21,10 +21,25 @@ export const greatestCommonDivisor = (a, b) => {
   return greatestCommonDivisor(b, a % b);
 };
 
+export const balanceNumber = (sNumber) => {
+  const sumOfDigits = s => s.split('').reduce((a, b) => +a + +b);
+
+  const sum = sumOfDigits(sNumber);
+  const baseDigit = Math.floor(sum / sNumber.length);
+  const edge = sNumber.length - (sum % sNumber.length);
+
+  let result = '';
+  for (let i = 0; i < sNumber.length; i += 1) {
+    const nextDigit = i < edge ? baseDigit : baseDigit + 1;
+    result = `${result}${nextDigit}`;
+  }
+  return result;
+};
+
 export const game = (questionGenerator, answerChecker, repeats, name) => {
   for (let i = 0; i < repeats; i += 1) {
     const question = questionGenerator();
-    const answer = writeAndReadline(`Question: ${question}\nYour answer: `);
+    const answer = writeAndReadline(`Question: ${question}\nYour answer: `).trim();
     if (!answerChecker(question, answer)) {
       console.log(`Let's try again, ${name}!`);
       return;

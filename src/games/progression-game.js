@@ -1,4 +1,5 @@
-import gameEngine, { randomInt } from '..';
+import gameEngine from '..';
+import { randomInt, termOfArithmeticProgression } from '../math_lib';
 
 export default () => {
   const questionAndAnswerGenerator = () => {
@@ -11,17 +12,17 @@ export default () => {
     const gapPosition = randomInt(0, progressionLength);
 
     for (let i = 0; i < progressionLength; i += 1) {
-      const currentTermValue = initialTermValue + (i * commonDifference);
+      const termValue = termOfArithmeticProgression(initialTermValue, commonDifference, i + 1);
       if (i === gapPosition) {
         question = `${question}.. `;
-        answer = currentTermValue.toString();
+        answer = termValue.toString();
       } else {
-        question = `${question}${currentTermValue} `;
+        question = `${question}${termValue} `;
       }
     }
 
     return [question, answer];
   };
 
-  gameEngine('\nWhat number is missing in this progression?', questionAndAnswerGenerator);
+  gameEngine('What number is missing in this progression?', questionAndAnswerGenerator);
 };

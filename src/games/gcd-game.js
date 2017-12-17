@@ -1,14 +1,8 @@
-import gameEngine, { randomInt } from '..';
+import gameEngine from '..';
+import { randomInt, greatestCommonDivisor } from '../math_lib';
 
 export default () => {
   const questionAndAnswerGenerator = () => {
-    const greatestCommonDivisor = (a, b) => {
-      if (b === 0) {
-        return Math.abs(a);
-      }
-      return greatestCommonDivisor(b, a % b);
-    };
-
     const base = randomInt(0, 30);
     const firstArg = base * randomInt(0, 50);
     const secondArg = base * randomInt(0, 50);
@@ -18,5 +12,5 @@ export default () => {
     return [question, answer];
   };
 
-  gameEngine('\nFind the greatest common divisor of given numbers.', questionAndAnswerGenerator);
+  gameEngine('Find the greatest common divisor of given numbers.', questionAndAnswerGenerator);
 };

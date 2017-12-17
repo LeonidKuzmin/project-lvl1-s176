@@ -1,4 +1,5 @@
-import gameEngine, { randomInt } from '..';
+import gameEngine from '..';
+import { randomInt } from '../math_lib';
 
 export default () => {
   const questionAndAnswerGenerator = () => {
@@ -29,5 +30,5 @@ export default () => {
     return [question, answer.toString()];
   };
 
-  gameEngine('\nWhat is the result of the expression?', questionAndAnswerGenerator);
+  gameEngine('What is the result of the expression?', questionAndAnswerGenerator);
 };
